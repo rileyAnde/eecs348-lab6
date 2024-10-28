@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+       <title>practice 2</title>
+    <style>
+        .styled-paragraph {
+            padding: 20px;
+            margin: 20px;
+            border-style: solid;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>practice 2!</h2>
+    <p class="styled-paragraph" id="paragraph">
+       This is the paragraph to be altered! 
+    </p>
+    <div class="input-group">
+        <label>Text Color (RGB): </label>
+        R: <input type="number" id="textR" min="0" max="255" placeholder="0-255">
+        G: <input type="number" id="textG" min="0" max="255" placeholder="0-255">
+        B: <input type="number" id="textB" min="0" max="255" placeholder="0-255">
+    </div>
+    <div class="input-group">
+        <label>Border Color (RGB): </label>
+        R: <input type="number" id="borderR" min="0" max="255" placeholder="0-255">
+        G: <input type="number" id="borderG" min="0" max="255" placeholder="0-255">
+        B: <input type="number" id="borderB" min="0" max="255" placeholder="0-255">
+    </div>
+    <div class="input-group">
+        <label for="borderWidth">Border Width (px): </label>
+        <input type="number" id="borderWidth" placeholder="e.g., 5" min="0">
+    </div>
+    <button onclick="applyStyles()">change colors!</button>
+
+    <script>
+        function applyStyles() {
+            const paragraph = document.getElementById("paragraph");
+            const textR = document.getElementById("textR").value;
+            const textG = document.getElementById("textG").value;
+            const textB = document.getElementById("textB").value;        
+            const borderR = document.getElementById("borderR").value;
+            const borderG = document.getElementById("borderG").value;
+            const borderB = document.getElementById("borderB").value;
+            const borderWidth = document.getElementById("borderWidth").value;
+            if (textR !== "" && textG !== "" && textB !== "") {
+                paragraph.style.color = `rgb(${textR}, ${textG}, ${textB})`;
+            }
+
+      
+            if (borderR !== "" && borderG !== "" && borderB !== "") {
+                paragraph.style.borderColor = `rgb(${borderR}, ${borderG}, ${borderB})`;
+            }
+
+            if (borderWidth) {
+                paragraph.style.borderWidth = `${borderWidth}px`;
+            }
+        }
+    </script>
+</body>
+</html>
+
